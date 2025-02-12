@@ -9,7 +9,8 @@
 		"dev": "vite --host  --port 10000",
 		"build": "tsc -b && vite build",
 		"lint": "eslint .",
-		"server": "yarn run mcs",
+		"server2": "yarn run chokidar ./server/db.json -c \"yarn run mcs\" --initial",
+		"server": "yarn node server/server.ts",
 		"preview": "vite preview"
 	},
 	"dependencies": {
@@ -21,6 +22,8 @@
 		"@uidotdev/usehooks": "^2.4.1",
 		"axios": "^1.7.9",
 		"babel-plugin-react-compiler": "^19.0.0-beta-27714ef-20250124",
+		"chokidar": "^4.0.3",
+		"chokidar-cli": "^3.0.0",
 		"clsx": "^2.1.1",
 		"concurrently": "^9.1.2",
 		"dayjs": "^1.11.13",
