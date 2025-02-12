@@ -1,0 +1,8 @@
+.create_project {
+	width: 100%;
+	display: flex;
+
+	.create_button {
+		width: 100%;
+	}
+}
