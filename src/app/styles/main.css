@@ -19,14 +19,18 @@ body {
 
 #root {
 	width: 100%;
-	height: 100dvh;
+	/* height: 100dvh; */
 	display: flex;
 	flex-direction: column;
 
 	gap: 12px;
-	/* padding: 1rem; */
+	padding: 1rem;
 
 	margin-bottom: 50px;
+
+	& > *:nth-child(2) {
+		margin-top: 20px;
+	}
 }
 
 a {

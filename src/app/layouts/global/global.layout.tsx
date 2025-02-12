@@ -1,9 +1,7 @@
-import { Sidebar } from "@components/business/Sidebar/Sidebar.tsx";
-import { Outlet } from "@tanstack/react-router";
-import { useEffect } from "react";
-import styles from "./global.layout.module.css";
 import { ModernBottomNavigation } from "@components/business/ModernBottomNavigation/ModernBottomNavigation.tsx";
+import { Outlet } from "@tanstack/react-router";
 import { Header } from "@ui/Header/Header.tsx";
+import styles from "./global.layout.module.css";
 
 export const GlobalLayout = () => {
 	// useEffect(() => {
@@ -16,7 +14,7 @@ export const GlobalLayout = () => {
 	return (
 		<>
 			<Header />
-			<Sidebar />
+			{/* <Sidebar /> */}
 			<main className={styles.main}>
 				<Outlet />
 			</main>

@@ -1,0 +1,27 @@
+.project_item {
+	width: 100%;
+	display: flex;
+	align-items: center;
+
+	gap: 8px;
+
+	padding: 8px;
+	border: 2px solid var(--color-secondary);
+	border-radius: 12px;
+
+	.actions {
+		margin-left: auto;
+		display: flex;
+		align-items: center;
+		gap: 4px;
+
+		.edit_button {
+			width: 120px;
+			background-color: var(--color-primary);
+		}
+
+		.delete_button {
+			background-color: var(--color-red);
+		}
+	}
+}

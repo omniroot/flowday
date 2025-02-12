@@ -1,14 +1,12 @@
+// @ts-nocheck
+import { HeartIcon } from "@/shared/assets/icons/HeartIcon.tsx";
 import { HomeIcon } from "@/shared/assets/icons/HomeIcon.tsx";
 import { SearchIcon } from "@/shared/assets/icons/SearchIcon.tsx";
-import { useAuth } from "@features/auth/hooks/useAuth.tsx";
 import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import styles from "./ModernBottomNavigation.module.css";
-import { UserIcon } from "@/shared/assets/icons/UserIcon.tsx";
-import { LoginIcon } from "@/shared/assets/icons/LoginIcon.tsx";
 
 export const ModernBottomNavigation = () => {
-	const { userId, isAuthorized } = useAuth();
 	const bottomNavigationRef = useRef<HTMLDivElement>(null);
 	const activeIndicatorRef = useRef<HTMLDivElement>(null);
 	const activeIndicatorStartRef = useRef<HTMLDivElement>(null);
@@ -157,7 +155,15 @@ export const ModernBottomNavigation = () => {
 				{/* <DiscoveryIcon width={20} height={20} /> */}
 				<SearchIcon width={20} />
 			</Link>
-			{isAuthorized ? (
+			<Link
+				to="/projects"
+				className={styles.bottom_navigation_item}
+				activeProps={{ className: styles.active, id: "active_bn" }}
+			>
+				{/* <DiscoveryIcon width={20} height={20} /> */}
+				<HeartIcon width={20} />
+			</Link>
+			{/* {isAuthorized ? (
 				<Link
 					to="/users/$userId"
 					params={{ userId: String(userId) }}
@@ -174,7 +180,7 @@ export const ModernBottomNavigation = () => {
 				>
 					<LoginIcon width={20} height={20} />
 				</Link>
-			)}
+			)} */}
 			{/* <Link
 				to="/settings"
 				className={styles.bottom_navigation_item}

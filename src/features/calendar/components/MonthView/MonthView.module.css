@@ -1,0 +1,78 @@
+.month_view {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 4px;
+
+	.days {
+		width: 100%;
+		height: auto;
+		/* display: flex; */
+		/* justify-content: center; */
+		/* align-items: center;
+		flex-wrap: wrap;
+		gap: 4px; */
+		gap: 4px;
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		transition: height 200ms;
+
+		.day {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			/* width: 74px; */
+			height: 90px;
+			gap: 4px;
+			/* background-color: brown; */
+			transition: height 200ms;
+			cursor: pointer;
+			overflow: hidden;
+
+			.tasks {
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				gap: 4px;
+
+				.task {
+					width: 100%;
+					height: 20px;
+					display: flex;
+					align-items: center;
+					justify-content: flex-start;
+					background-color: var(--color-primary);
+
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+					width: 100%;
+					/* width: 12ch; */
+					border-radius: 6px;
+				}
+			}
+
+			.number {
+				width: 25px;
+				height: 25px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border-radius: 50%;
+				background-color: transparent;
+				transition: background-color 200ms;
+			}
+
+			.number[data-current="true"] {
+				background-color: var(--color-secondary);
+			}
+
+			.number[data-selected="true"] {
+				background-color: var(--color-primary);
+			}
+		}
+	}
+}

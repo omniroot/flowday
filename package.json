@@ -5,10 +5,11 @@
 	"license": "MIT",
 	"type": "module",
 	"scripts": {
+		"start": "concurrently \"yarn run dev\" \"yarn run server\"",
 		"dev": "vite --host  --port 10000",
 		"build": "tsc -b && vite build",
 		"lint": "eslint .",
-		"server": "yarn run json-server --port 10001 db.json",
+		"server": "yarn run mcs",
 		"preview": "vite preview"
 	},
 	"dependencies": {
@@ -21,10 +22,12 @@
 		"axios": "^1.7.9",
 		"babel-plugin-react-compiler": "^19.0.0-beta-27714ef-20250124",
 		"clsx": "^2.1.1",
+		"concurrently": "^9.1.2",
 		"dayjs": "^1.11.13",
 		"fastify": "^5.2.1",
 		"jotai": "^2.11.1",
 		"json-server": "^1.0.0-beta.3",
+		"mock-config-server": "^4.0.3",
 		"motion": "^11.17.0",
 		"react": "^18.3.1",
 		"react-compiler-runtime": "^19.0.0-beta-27714ef-20250124",

@@ -1,16 +1,16 @@
 :root {
 	/* Brand colors */
-	--color-primary: hsl(30, 88%, 64%);
-	--color-ternary: hsl(27, 14%, 25%);
-	--color-secondary: hsl(27, 14%, 15%);
-	--color-background: hsl(36, 10%, 10%);
-	--color-background-80: hsla(36, 10%, 10%, 80%);
+	--color-primary: hsl(220, 88%, 64%);
+	--color-ternary: hsl(220, 14%, 25%);
+	--color-secondary: hsl(220, 14%, 15%);
+	--color-background: hsl(220, 10%, 10%);
+	--color-background-80: hsla(220, 10%, 10%, 80%);
 
 	--color-text: hsl(30, 100%, 98%);
 	--color-subtext: hsl(30, 30%, 90%);
 
-	--color-selection-text: hsl(30, 88%, 68%);
-	--color-selection-background: hsl(27, 14%, 20%);
+	--color-selection-text: hsl(220, 88%, 68%);
+	--color-selection-background: hsl(220, 14%, 20%);
 
 	--color-red: hsl(0, 73%, 54%);
 

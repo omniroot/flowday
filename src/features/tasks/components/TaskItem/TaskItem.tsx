@@ -1,10 +1,8 @@
-import { ITask } from "@features/tasks/types/tasks.types.ts";
-import styles from "./TaskItem.module.css";
-import { FC } from "react";
-import { Typography } from "@components/ui/Typography/Typography.tsx";
-import { Button } from "@components/ui/Button/Button.tsx";
-import { TrashIcon } from "@/shared/assets/icons/TrashIcon.tsx";
 import { Badge } from "@components/ui/Badge/Badge.tsx";
+import { Typography } from "@components/ui/Typography/Typography.tsx";
+import { ITask } from "@features/tasks/types/tasks.types.ts";
+import { FC } from "react";
+import styles from "./TaskItem.module.css";
 
 interface ITaskItemProps {
 	task: ITask;

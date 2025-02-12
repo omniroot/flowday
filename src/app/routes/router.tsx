@@ -1,4 +1,5 @@
 import { GlobalLayout } from "@/app/layouts/global/global.layout.tsx";
+import { projectsRoute } from "@/app/routes/projects/projects.route.tsx";
 import { PageTransition } from "@components/ui/PageTransition/PageTransition.tsx";
 import { HomePage } from "@pages/home/home.page.tsx";
 import { NotFoundPage } from "@pages/notfound/notfound.page.tsx";
@@ -19,7 +20,7 @@ const indexRoute = createRoute({
 	),
 });
 
-const routeTree = rootRoute.addChildren([indexRoute]);
+const routeTree = rootRoute.addChildren([indexRoute, projectsRoute]);
 
 export const router = createRouter({
 	routeTree,
