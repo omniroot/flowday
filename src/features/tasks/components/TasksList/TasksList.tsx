@@ -1,51 +1,54 @@
 import { useGetTasks } from "@features/tasks/api/getTasks/getTasks.tsx";
 import { TaskItem } from "@features/tasks/components/TaskItem/TaskItem.tsx";
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import styles from "./TasksList.module.css";
 
-interface ITasksListProps {}
-export const TasksList: FC<ITasksListProps> = () => {
-	const { data } = useGetTasks();
-	// const client = useQueryClient();
-	// const updateList = () => {
-	// 	client.refetchQueries({ queryKey: useGetTasks.getKey() });
-	// };
+const getDaysInCurrentMonth = () => {
+	const currentDate = new Date(); // Получаем текущий год и месяц
 
-	// const { mutate } = useAddTask({ onSuccess: updateList });
-	const [tasks, setTasks] = useState(data);
+	const year = currentDate.getFullYear();
+	const month = currentDate.getMonth(); // Месяцы начинаются с 0 (январь) до 11 (декабрь)// Создаем новую дату, установив день на 0, чтобы получить последний день предыдущего месяца
 
-	// const onReorder = (newOrder: ITask[]) => {
-	// 	const debouncedUpdateTask = debounce(() => {
-	// 		if (newOrder) {
-	// 			updateTasks(newOrder);
-	// 		}
-	// 	}, 800);
+	const lastDayOfMonth = new Date(year, month + 1, 0); // Получаем количество дней в месяце
 
-	// 	setTasks(newOrder);
-	// 	debouncedUpdateTask();
-	// };
-	console.log({ data });
+	return lastDayOfMonth.getDate();
+};
 
-	useEffect(() => {
-		if (data) setTasks(data);
-	}, [data]);
+const isBetweenDates = (date: number, start: number, end: number) => {
+	return date >= start && date <= end;
+};
+
+interface ITasksListProps {
+	selectedDay: number;
+}
+export const TasksList: FC<ITasksListProps> = ({ selectedDay }) => {
+	const { data: tasks } = useGetTasks();
 
 	if (!tasks) return null;
 	return (
 		<div className={styles.tasks_list}>
-			{/* <Button onClick={() => mutate({ completed: false, title: `test ${crypto.randomUUID()}` })}>
-				Add test task
-			</Button> */}
-			{tasks?.map((task) => {
-				return (
-					<TaskItem
-						key={task.id}
-						task={task}
-						// onChange={(state) => onSwitchChange(task.id, state)}
-						// rightSlot={<TrashIcon onClick={() => deleteTask({ id: task.id })} />}
-					/>
-				);
-			})}
+			{tasks
+				?.filter((task) => {
+					if (
+						isBetweenDates(
+							selectedDay,
+							Number(task.dateStart.split(".")[0]),
+							Number(task.dateEnd.split(".")[0]),
+						)
+					) {
+						return task;
+					}
+				})
+				.map((task) => {
+					return (
+						<TaskItem
+							key={task.id}
+							task={task}
+							// onChange={(state) => onSwitchChange(task.id, state)}
+							// rightSlot={<TrashIcon onClick={() => deleteTask({ id: task.id })} />}
+						/>
+					);
+				})}
 		</div>
 	);
 };

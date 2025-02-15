@@ -7,7 +7,8 @@
 	--color-background-80: hsla(220, 10%, 10%, 80%);
 
 	--color-text: hsl(30, 100%, 98%);
-	--color-subtext: hsl(30, 30%, 90%);
+	--color-subtext: hsl(30, 20%, 90%);
+	--color-subtext2: hsl(30, 1%, 70%);
 
 	--color-selection-text: hsl(220, 88%, 68%);
 	--color-selection-background: hsl(220, 14%, 20%);

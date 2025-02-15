@@ -4,6 +4,10 @@
 	align-items: center;
 	gap: 8px;
 
+	padding: 4px 8px;
+	background-color: var(--color-secondary);
+	border-radius: 12px;
+
 	.info {
 		width: 70%;
 		display: flex;
@@ -17,12 +21,22 @@
 
 			/* max-width: 100%; */
 		}
+
+		.description {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
 	}
 
 	.right {
-		/* width: 100%; */
+		width: 100%;
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
+
+		.project_badge {
+			color: var(--color-text);
+		}
 	}
 }
