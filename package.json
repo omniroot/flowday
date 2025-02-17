@@ -1,6 +1,5 @@
 {
 	"name": "flowday",
-	"private": false,
 	"version": "0.1.0",
 	"license": "MIT",
 	"type": "module",
@@ -51,5 +50,6 @@
 		"typescript": "~5.7.3",
 		"typescript-eslint": "^8.18.2",
 		"vite": "^6.0.5"
-	}
+	},
+	"packageManager": "yarn@4.6.0"
 }
