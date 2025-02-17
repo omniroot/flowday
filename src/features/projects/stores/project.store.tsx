@@ -6,11 +6,11 @@ export const useProjects = () => {
 	const { data: projects } = useGetProjects();
 	// const [projects, setProjects] = useAtom(projectsStore);
 
-	const getPorject = (id: string) => {
+	const getProject = (id: number) => {
 		return projects?.filter((project) => project.id === id)[0];
 	};
 
 	console.log({ projects });
 
-	return { projects, getPorject };
+	return { projects, getProject };
 };

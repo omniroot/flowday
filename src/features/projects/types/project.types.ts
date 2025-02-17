@@ -1,5 +1,5 @@
 export interface IProject {
-	id: string;
+	id: number;
 	title: string;
 	color: string;
 }

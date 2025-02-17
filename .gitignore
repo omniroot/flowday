@@ -26,3 +26,4 @@ dist-ssr
 # Million Lint
 .million
 src/shared/components/ui
+server/db.json

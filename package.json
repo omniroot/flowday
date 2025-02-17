@@ -8,8 +8,8 @@
 		"dev": "vite --host  --port 10000",
 		"build": "tsc -b && vite build",
 		"lint": "eslint .",
-		"server2": "yarn run chokidar ./server/db.json -c \"yarn run mcs\" --initial",
-		"server": "yarn node server/server.ts",
+		"server": "yarn run mcs",
+		"server-auto": "yarn node server/server.ts",
 		"preview": "vite preview"
 	},
 	"dependencies": {

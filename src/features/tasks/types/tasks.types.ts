@@ -2,7 +2,7 @@ export interface ITask {
 	id: number;
 	title: string;
 	description: string;
-	project: string;
+	project: number;
 	completed: boolean;
 	priority: "low" | "medium" | "high";
 	difficult: "easy" | "medium" | "hard";

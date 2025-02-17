@@ -3,6 +3,7 @@ import { useGetTasks } from "@features/tasks/api/getTasks/getTasks.tsx";
 import { Typography } from "@ui/Typography/Typography.tsx";
 import { useState } from "react";
 import styles from "./MonthView.module.css";
+import { TasksList } from "@features/tasks/components/TasksList/TasksList";
 
 const getDaysInCurrentMonth = () => {
 	const currentDate = new Date(); // Получаем текущий год и месяц
@@ -23,8 +24,8 @@ export const MonthView = () => {
 	const [daysInMonth] = useState(getDaysInCurrentMonth());
 	const [currentDay] = useState(new Date().getDate());
 	const [selectDay, setSelectDay] = useState(currentDay);
-	const { getPorject } = useProjects();
-	const [isOpen, setIsOpen] = useState(false);
+	const { getProject } = useProjects();
+	const [isOpen, setIsOpen] = useState(true);
 	const { data: tasks } = useGetTasks();
 	const days = Array.from({ length: daysInMonth }).map((_, index) => index + 1);
 	// useEffect(() => {
@@ -47,6 +48,7 @@ export const MonthView = () => {
 					>
 						<Typography
 							className={styles.number}
+							size="base"
 							data-current={day === currentDay}
 							data-selected={day === selectDay}
 						>
@@ -69,9 +71,9 @@ export const MonthView = () => {
 									return (
 										<div
 											className={styles.task}
-											style={{ backgroundColor: getPorject(task.project)?.color || "red" }}
+											style={{ backgroundColor: getProject(task.project)?.color || "red" }}
 										>
-											{task.title}
+											{/* {task.title} */}
 										</div>
 									);
 								})}
@@ -82,25 +84,9 @@ export const MonthView = () => {
 					</div>
 				))}
 			</div>
-			<button onClick={() => setIsOpen((prev) => !prev)}>set {String(isOpen)}</button>
+			{/* <button onClick={() => setIsOpen((prev) => !prev)}>set {String(isOpen)}</button> */}
 			<div>{currentDay}</div>
-			<div className={styles.tasks}>
-				{tasks
-					?.filter((task) => {
-						if (
-							isBetweenDates(
-								selectDay,
-								Number(task.dateStart.split(".")[0]),
-								Number(task.dateEnd.split(".")[0]),
-							)
-						) {
-							return task;
-						}
-					})
-					.map((task) => {
-						return <div className={styles.task}>{task.title}</div>;
-					})}
-			</div>
+			<TasksList selectedDay={selectDay} />
 		</div>
 	);
 };
