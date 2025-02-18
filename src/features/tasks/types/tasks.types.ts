@@ -12,3 +12,5 @@ export interface ITask {
 	timeEnd: string; // "15:00"
 	createdAt: string; //
 }
+
+export type ICreateTask = Partial<Omit<ITask, "id" | "createdAt">>;

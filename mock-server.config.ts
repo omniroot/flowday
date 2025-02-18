@@ -12,7 +12,10 @@ const mockServerConfig: FlatMockServerConfig = [
 				// "": "",
 			},
 		},
-		cors: { origin: "http://localhost:10000" },
+		cors: {
+			allowedHeaders: ["*"],
+			origin: ["http://localhost:10000", "http://192.168.1.34:10000"],
+		},
 	},
 	{
 		name: "rest",

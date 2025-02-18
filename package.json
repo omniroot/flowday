@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"start": "concurrently \"yarn run dev\" \"yarn run server\"",
-		"dev": "vite --host  --port 10000",
+		"dev": "vite --host --port 10000",
 		"build": "tsc -b && vite build",
 		"lint": "eslint .",
 		"server": "yarn run mcs",

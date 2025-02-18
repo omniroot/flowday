@@ -2,7 +2,7 @@ import { api } from "@/shared/api/api.ts";
 import { IProject } from "@features/projects/types/project.types.ts";
 import { createMutation } from "react-query-kit";
 
-type ICreateProject = Omit<IProject, "id">;
+export type ICreateProject = Omit<IProject, "id">;
 
 const createProject = (project: ICreateProject) => {
 	return api.post<IProject>(`projects`, { id: 0, ...project });
