@@ -16,6 +16,7 @@
 	.project_buttons {
 		display: flex;
 		gap: 8px;
+		overflow-x: scroll;
 	}
 
 	.date_inputs {

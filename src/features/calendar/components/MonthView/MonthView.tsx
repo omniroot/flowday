@@ -4,6 +4,7 @@ import { useTasks } from "@features/tasks/hooks/useTasks.tsx";
 import { Typography } from "@ui/Typography/Typography.tsx";
 import { useState } from "react";
 import styles from "./MonthView.module.css";
+import { useCalendar } from "@features/calendar/hooks/useCalendar.tsx";
 
 const getDaysInCurrentMonth = () => {
 	const currentDate = new Date(); // Получаем текущий год и месяц
@@ -21,13 +22,13 @@ const isBetweenDates = (date: number, start: number, end: number) => {
 };
 
 export const MonthView = () => {
+	const { currentDate, selectedDate, parseDate, setSelectedDate } = useCalendar();
 	const [daysInMonth] = useState(getDaysInCurrentMonth());
-	const [currentDay] = useState(new Date().getDate());
-	const [selectDay, setSelectDay] = useState(currentDay);
 	const { getProject } = useProjects();
 	const [isOpen] = useState(true);
 	const { tasks } = useTasks();
 	const days = Array.from({ length: daysInMonth }).map((_, index) => index + 1);
+
 	// useEffect(() => {
 	// 	tasks?.map((task) => {
 	// 		const date = JSON.parse(task.date);
@@ -44,14 +45,14 @@ export const MonthView = () => {
 					<div
 						key={day}
 						className={styles.day}
-						onClick={() => setSelectDay(Number(day))}
+						onClick={() => setSelectedDate(day.toString())}
 						style={{ height: isOpen ? "50px" : "80px" }}
 					>
 						<Typography
 							className={styles.number}
-							size="base"
-							data-current={day === currentDay}
-							data-selected={day === selectDay}
+							size="small"
+							data-current={day === parseDate(currentDate).day}
+							data-selected={day === parseDate(selectedDate).day}
 						>
 							{day}
 						</Typography>
@@ -87,8 +88,6 @@ export const MonthView = () => {
 				))}
 			</div>
 			{/* <button onClick={() => setIsOpen((prev) => !prev)}>set {String(isOpen)}</button> */}
-			<div>{currentDay}</div>
-			<TasksList selectedDay={selectDay} />
 		</div>
 	);
 };

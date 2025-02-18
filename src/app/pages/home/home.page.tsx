@@ -1,6 +1,7 @@
 import { MonthView } from "@features/calendar/components/MonthView/MonthView.tsx";
 import { useHeader } from "@features/storage/stores/header.storage.ts";
 import { CreateTaskBottomSheet } from "@features/tasks/components/CreateTaskBottomSheet/CreateTaskBottomSheet.tsx";
+import { TasksList } from "@features/tasks/components/TasksList/TasksList.tsx";
 import { Button } from "@ui/Button/Button.tsx";
 import { useEffect, useState } from "react";
 
@@ -18,6 +19,7 @@ export const HomePage = () => {
 			<Button style={{ width: "100%" }} onClick={() => setIsShow(true)}>
 				Add task
 			</Button>
+			<TasksList />
 			<CreateTaskBottomSheet isOpen={isShow} onOutsideClick={() => setIsShow(false)} />
 			{/* <TasksList /> */}
 		</>

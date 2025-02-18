@@ -2,6 +2,7 @@ import { TaskItem } from "@features/tasks/components/TaskItem/TaskItem.tsx";
 import { useTasks } from "@features/tasks/hooks/useTasks.tsx";
 import { FC } from "react";
 import styles from "./TasksList.module.css";
+import { useCalendar } from "@features/calendar/hooks/useCalendar.tsx";
 
 // const getDaysInCurrentMonth = () => {
 // 	const currentDate = new Date(); // Получаем текущий год и месяц
@@ -18,10 +19,8 @@ const isBetweenDates = (date: number, start: number, end: number) => {
 	return date >= start && date <= end;
 };
 
-interface ITasksListProps {
-	selectedDay: number;
-}
-export const TasksList: FC<ITasksListProps> = ({ selectedDay }) => {
+export const TasksList = () => {
+	const { selectedDate, parseDate } = useCalendar();
 	const { tasks } = useTasks();
 
 	if (!tasks) return null;
@@ -31,7 +30,7 @@ export const TasksList: FC<ITasksListProps> = ({ selectedDay }) => {
 				?.filter((task) => {
 					if (
 						isBetweenDates(
-							selectedDay,
+							parseDate(selectedDate).day,
 							Number(task.dateStart.split(".")[0]),
 							Number(task.dateEnd.split(".")[0]),
 						)

@@ -8,7 +8,10 @@ export const useTasks = () => {
 	const refetchTasks = () => {
 		client.refetchQueries({ queryKey: useGetTasks.getKey() });
 	};
-	const { data: tasks, isLoading } = useGetTasks();
+	const { data: tasks, isLoading } = useGetTasks({
+		staleTime: 6 * 1000,
+		refetchInterval: 6 * 1000,
+	});
 	const { mutate: createTask } = useCreateTask({ onSuccess: refetchTasks });
 	const { mutate: updateTask } = useUpdateTask({ onSuccess: refetchTasks });
 	const { mutate: deleteTask } = useDeleteTask({ onSuccess: refetchTasks });
