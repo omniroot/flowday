@@ -1,10 +1,9 @@
+import { useCalendar } from "@features/calendar/hooks/useCalendar.tsx";
 import { useProjects } from "@features/projects/hooks/useProjects.tsx";
-import { TasksList } from "@features/tasks/components/TasksList/TasksList";
 import { useTasks } from "@features/tasks/hooks/useTasks.tsx";
 import { Typography } from "@ui/Typography/Typography.tsx";
 import { useState } from "react";
 import styles from "./MonthView.module.css";
-import { useCalendar } from "@features/calendar/hooks/useCalendar.tsx";
 
 const getDaysInCurrentMonth = () => {
 	const currentDate = new Date(); // Получаем текущий год и месяц
