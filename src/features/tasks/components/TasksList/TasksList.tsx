@@ -3,16 +3,16 @@ import { useTasks } from "@features/tasks/hooks/useTasks.tsx";
 import { FC } from "react";
 import styles from "./TasksList.module.css";
 
-const getDaysInCurrentMonth = () => {
-	const currentDate = new Date(); // Получаем текущий год и месяц
+// const getDaysInCurrentMonth = () => {
+// 	const currentDate = new Date(); // Получаем текущий год и месяц
 
-	const year = currentDate.getFullYear();
-	const month = currentDate.getMonth(); // Месяцы начинаются с 0 (январь) до 11 (декабрь)// Создаем новую дату, установив день на 0, чтобы получить последний день предыдущего месяца
+// 	const year = currentDate.getFullYear();
+// 	const month = currentDate.getMonth(); // Месяцы начинаются с 0 (январь) до 11 (декабрь)// Создаем новую дату, установив день на 0, чтобы получить последний день предыдущего месяца
 
-	const lastDayOfMonth = new Date(year, month + 1, 0); // Получаем количество дней в месяце
+// 	const lastDayOfMonth = new Date(year, month + 1, 0); // Получаем количество дней в месяце
 
-	return lastDayOfMonth.getDate();
-};
+// 	return lastDayOfMonth.getDate();
+// };
 
 const isBetweenDates = (date: number, start: number, end: number) => {
 	return date >= start && date <= end;

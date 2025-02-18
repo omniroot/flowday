@@ -25,7 +25,7 @@ export const MonthView = () => {
 	const [currentDay] = useState(new Date().getDate());
 	const [selectDay, setSelectDay] = useState(currentDay);
 	const { getProject } = useProjects();
-	const [isOpen, setIsOpen] = useState(true);
+	const [isOpen] = useState(true);
 	const { tasks } = useTasks();
 	const days = Array.from({ length: daysInMonth }).map((_, index) => index + 1);
 	// useEffect(() => {

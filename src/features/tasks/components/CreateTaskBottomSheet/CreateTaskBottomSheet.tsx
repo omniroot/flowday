@@ -26,7 +26,7 @@ export const CreateTaskBottomSheet: FC<ICreateTaskBottomSheetProps> = ({
 	onOutsideClick,
 }) => {
 	const client = useQueryClient();
-	const { projects, getProject } = useProjects();
+	const { projects } = useProjects();
 	const { mutate: createTask } = useCreateTask({
 		onSuccess: () => {
 			client.refetchQueries({ queryKey: useGetTasks.getKey() });
