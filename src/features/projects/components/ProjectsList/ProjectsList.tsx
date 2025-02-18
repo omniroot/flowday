@@ -4,7 +4,6 @@ import { useProjects } from "@features/projects/hooks/useProjects.tsx";
 
 export const ProjectsList = () => {
 	const { projects } = useProjects();
-	console.log({ projects });
 
 	return (
 		<div className={styles.projects_list}>
