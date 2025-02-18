@@ -1,10 +1,6 @@
 import { api } from "@/shared/api/api.ts";
-import { ITask } from "@features/tasks/types/tasks.types.ts";
+import { IDeleteTask, ITask } from "@features/tasks/types/tasks.types.ts";
 import { createMutation } from "react-query-kit";
-
-interface IDeleteTask {
-	id: number;
-}
 
 const deleteTask = ({ id }: IDeleteTask) => {
 	return api.delete<ITask>(`tasks/${id}`);

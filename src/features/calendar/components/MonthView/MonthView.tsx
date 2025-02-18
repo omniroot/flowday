@@ -1,9 +1,9 @@
-import { useGetTasks } from "@features/tasks/api/getTasks/getTasks.tsx";
+import { useProjects } from "@features/projects/hooks/useProjects.tsx";
+import { TasksList } from "@features/tasks/components/TasksList/TasksList";
+import { useTasks } from "@features/tasks/hooks/useTasks.tsx";
 import { Typography } from "@ui/Typography/Typography.tsx";
 import { useState } from "react";
 import styles from "./MonthView.module.css";
-import { TasksList } from "@features/tasks/components/TasksList/TasksList";
-import { useProjects } from "@features/projects/hooks/useProjects.tsx";
 
 const getDaysInCurrentMonth = () => {
 	const currentDate = new Date(); // Получаем текущий год и месяц
@@ -26,7 +26,7 @@ export const MonthView = () => {
 	const [selectDay, setSelectDay] = useState(currentDay);
 	const { getProject } = useProjects();
 	const [isOpen, setIsOpen] = useState(true);
-	const { data: tasks, error } = useGetTasks();
+	const { tasks } = useTasks();
 	const days = Array.from({ length: daysInMonth }).map((_, index) => index + 1);
 	// useEffect(() => {
 	// 	tasks?.map((task) => {
@@ -87,7 +87,6 @@ export const MonthView = () => {
 				))}
 			</div>
 			{/* <button onClick={() => setIsOpen((prev) => !prev)}>set {String(isOpen)}</button> */}
-			<span>{error?.stack}</span>
 			<div>{currentDay}</div>
 			<TasksList selectedDay={selectDay} />
 		</div>

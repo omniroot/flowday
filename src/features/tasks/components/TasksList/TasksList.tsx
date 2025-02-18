@@ -1,5 +1,5 @@
-import { useGetTasks } from "@features/tasks/api/getTasks/getTasks.tsx";
 import { TaskItem } from "@features/tasks/components/TaskItem/TaskItem.tsx";
+import { useTasks } from "@features/tasks/hooks/useTasks.tsx";
 import { FC } from "react";
 import styles from "./TasksList.module.css";
 
@@ -22,7 +22,7 @@ interface ITasksListProps {
 	selectedDay: number;
 }
 export const TasksList: FC<ITasksListProps> = ({ selectedDay }) => {
-	const { data: tasks } = useGetTasks();
+	const { tasks } = useTasks();
 
 	if (!tasks) return null;
 	return (

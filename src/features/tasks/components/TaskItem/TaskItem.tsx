@@ -1,13 +1,13 @@
 import { MoreIcon } from "@/shared/assets/icons/MoreIcon.tsx";
 import { Badge } from "@components/ui/Badge/Badge.tsx";
 import { Typography } from "@components/ui/Typography/Typography.tsx";
+import { useProjects } from "@features/projects/hooks/useProjects.tsx";
+import { useTasks } from "@features/tasks/hooks/useTasks.tsx";
 import { ITask } from "@features/tasks/types/tasks.types.ts";
 import { Button } from "@ui/Button/Button.tsx";
+import { Checkbox } from "@ui/Checkbox/Checkbox.tsx";
 import { FC, useState } from "react";
 import styles from "./TaskItem.module.css";
-import { useUpdateTask } from "@features/tasks/api/updateTask/updateTask.tsx";
-import { Checkbox } from "@ui/Checkbox/Checkbox.tsx";
-import { useProjects } from "@features/projects/hooks/useProjects.tsx";
 
 interface ITaskItemProps {
 	task: ITask;
@@ -15,7 +15,7 @@ interface ITaskItemProps {
 
 export const TaskItem: FC<ITaskItemProps> = ({ task }) => {
 	const { getProject } = useProjects();
-	const { mutate: updateTask } = useUpdateTask();
+	const { updateTask } = useTasks();
 	const [checked, setChecked] = useState(task.completed);
 	const project = getProject(task.project);
 

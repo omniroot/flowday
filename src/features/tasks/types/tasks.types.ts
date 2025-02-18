@@ -13,4 +13,7 @@ export interface ITask {
 	createdAt: string; //
 }
 
+export type IGetTask = Pick<ITask, "id">;
 export type ICreateTask = Partial<Omit<ITask, "id" | "createdAt">>;
+export type IUpdateTask = Partial<Omit<ITask, "createdAt">>;
+export type IDeleteTask = Pick<ITask, "id">;
